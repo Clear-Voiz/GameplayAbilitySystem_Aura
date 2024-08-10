@@ -33,4 +33,7 @@ protected:
 	UPROPERTY()
 	TObjectPtr<class UAttributeSet> AttributeSet;
 
+
+	virtual void InitAbilityActorInfo(AActor* InOwnerActor, AActor* InAvatarActor);
+
 };

@@ -24,3 +24,7 @@ void AAuraCharacterBase::BeginPlay()
 	
 }
 
+void AAuraCharacterBase::InitAbilityActorInfo(AActor* InOwnerActor, AActor* InAvatarActor)
+{
+
+}
