@@ -18,6 +18,11 @@ public:
 	AAuraCharacter();
 	virtual void PossessedBy(AController* NewController) override;
 
+	/**Combat Interface */
+	virtual int32 GetPlayerLevel() override;
+	/**End Combat Interface */
+
+
 private:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (AllowPrivateAccess = "true"))
 	TObjectPtr<class UCameraComponent> CameraComponent;

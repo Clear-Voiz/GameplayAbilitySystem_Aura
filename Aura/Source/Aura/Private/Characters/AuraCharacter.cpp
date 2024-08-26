@@ -44,6 +44,16 @@ void AAuraCharacter::PossessedBy(AController* NewController)
 
 	InitAbilitySystemComponentAndAttributeSet(AuraPlayerState->GetAbilitySystemComponent(), AuraPlayerState->GetAttributeSet());
 	InitAbilityActorInfo(AuraPlayerState, this);
+	AddCharacterAbilities();
+}
+
+int32 AAuraCharacter::GetPlayerLevel()
+{
+	const APlayerController* PC = GetWorld()->GetFirstPlayerController();
+	check(PC);
+	const AAuraPlayerState* PS = PC->GetPlayerState<AAuraPlayerState>();
+	check(PS);
+    return PS->GetPlayerLevel();
 }
 
 void AAuraCharacter::OnRep_PlayerState()
@@ -98,4 +108,5 @@ void AAuraCharacter::InitAbilityActorInfo(AActor* InOwnerActor, AActor* InAvatar
 	}
 	AAuraHUD* AuraHUD = PC->GetHUD<AAuraHUD>();
 	AuraHUD->InitOverlay(GetAbilitySystemComponent(),GetAttributeSet(),MoveTemp(PC),MoveTemp(PS));
+	InitializeDefaultAttributes();
 }
